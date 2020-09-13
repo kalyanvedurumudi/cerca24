@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner">
+				<h2 class="d-flex">Global China Restro</h2>
+				<h3 class="d-flex">Resturant </h3>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+	<div class="chat_container d-flex">
+		<div class="chat_box d-flex received">
+			<div class="chat">
+				<h2>Hey, Where are you?</h2>
+				<p>12:25 pm</p>
+			</div>
+		</div>
+
+		<div class="chat_box d-flex send">
+			<div class="chat">
+				<h2>Almost there sir !</h2>
+				<p>12:25 pm</p>
+			</div>
+		</div>
+	</div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+	<div class="form">
+		<ion-list lines="none d-flex">
+			<ion-item lines="none">
+				<ion-input type="text" placeholder="{{'write_your_message' | translate}}"></ion-input>
+			</ion-item>
+			<div class="send_btn end">
+				<ion-icon class="zmdi zmdi-mail-send"></ion-icon>
+			</div>
+		</ion-list>
+	</div>
+</ion-footer>

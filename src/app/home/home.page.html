@@ -1,0 +1,41 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-menu-button></ion-menu-button>
+		</ion-buttons>
+		<ion-title [ngClass]="fabAction ? 'active' : ''">
+			<div class="title_inner d-flex">
+				<span class="offline">{{'you_offline' | translate}}</span>
+				<span class="online">{{'you_online' | translate}}</span>
+
+				<div class="online_offline_button online end" (click)="toggleFab(false)">
+					{{'go_offline' | translate}}
+				</div>
+
+				<div class="online_offline_button offline end" (click)="toggleFab(true)">
+					{{'go_online' | translate}}
+				</div>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+	<!--<div class="map">
+		<img src="assets/imgs/map.png">
+	</div>
+	<div class="my_locatinon" style="left: 45%; top: 38%; transform: rotate(46deg);">
+		<img src="assets/imgs/delivery_car.png">
+	</div>-->
+	<div #map id="map" class="map" style="background-color: black;"></div>
+</ion-content>
+
+<ion-footer class="ion-no-border" [ngClass]="fabAction ? 'active' : ''">
+	<div class="massage" *ngIf ="ordercount ==0" (click)="task_assgined()">
+		<p class="ion-text-center" style ="color: white;">{{"your_delivery_task_will_apear_here" | translate}}</p>
+	</div>
+	<div class="massage" *ngIf ="ordercount >0 && fabAction" (click)="task_assgined()">
+		<p class="ion-text-center" style ="color: white;">{{ordercount}} {{"new_order_recieved" | translate}}</p>
+	</div>
+</ion-footer>

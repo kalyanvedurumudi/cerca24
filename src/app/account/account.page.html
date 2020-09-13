@@ -1,0 +1,78 @@
+<ion-header>
+
+	<ion-toolbar>
+			<ion-buttons slot="start">
+					<span>
+					<ion-icon class="zmdi zmdi-tag-backspace ion-text-center" (click)="gotohome()">
+						</ion-icon> </span>
+			</ion-buttons>
+		<ion-title>
+				{{"account" | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content class="bg_color" fullscreen>
+	<div class="profile" (click)="profile()">
+		<h2>{{username}}</h2>
+		<p class="d-flex">{{"view_profile" | translate}}
+			<ion-icon class="zmdi zmdi-chevron-right end ion-text-end"></ion-icon>
+		</p>
+	</div>
+	<ion-list lines="none">
+		<ion-item (click)="select_language()">
+			<div class="item_inner d-flex">
+				<ion-icon class="zmdi zmdi-globe ion-text-start"></ion-icon>
+				<div class="text_box">
+					<h2>{{"language" | translate}}</h2>
+					<p>{{"select_prererred_language" | translate}}</p>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item (click)="terms_conditions()">
+			<div class="item_inner d-flex">
+				<ion-icon class="zmdi zmdi-assignment ion-text-start"></ion-icon>
+				<div class="text_box">
+					<h2>{{"terms_conditions" | translate}}</h2>
+					<p>{{"read_company_terms_of_use" | translate}}</p>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item (click)="support()">
+			<div class="item_inner d-flex">
+				<ion-icon class="zmdi zmdi-email ion-text-start"></ion-icon>
+				<div class="text_box">
+					<h2>{{"support" | translate}}</h2>
+					<p>{{"let_us_know_your_quries_fedback" | translate}}</p>
+				</div>
+			</div>
+		</ion-item>
+		<ion-item>
+			<div class="item_inner d-flex">
+				<ion-icon class="zmdi zmdi-share ion-text-start"></ion-icon>
+				<div class="text_box">
+					<h2>{{"share_app" | translate}}</h2>
+					<p>{{"share_store_app_with_friends_family" | translate}}</p>
+				</div>
+			</div>
+		</ion-item>
+
+		<ion-item>
+				<div class="item_inner d-flex" (click) ="orderhistory()">
+					<ion-icon class="zmdi zmdi-assignment ion-text-start"></ion-icon>
+					<div class="text_box">
+						<h2>{{"order_history" | translate}}</h2>
+						<p>{{"order_history_text" | translate}}</p>
+					</div>
+				</div>
+			</ion-item>
+
+		<div class="buy_this_app" *ngIf="config.showBuyPromt" (click)="buyAppAction()">
+			<h2>
+				<ion-icon class="zmdi zmdi-shopping-cart"></ion-icon>
+				{{"buy_this_app" | translate}}
+			</h2>
+		</div>
+	</ion-list>
+</ion-content>

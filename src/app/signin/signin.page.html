@@ -1,0 +1,67 @@
+<ion-content class="bg_color" fullscreen>
+    <div class="banner">
+        <img src="assets/imgs/sign_in_banner.png" class="banner_bg">
+        <div class="logo">
+            <img src="assets/imgs/logo.png">
+            <h2>{{"app_title" | translate}}</h2>
+        </div>
+    </div>
+    <form [formGroup]="onLoginForm">
+
+        <div class="form">
+
+            <ion-list lines="none">
+                <ion-item lines="none">
+                    <ion-label mode="md" position="floating">{{"email_address" | translate}}</ion-label>
+                    <ion-input mode="md" type="email" formControlName="email" name="email"
+                        [class.invalid]="!onLoginForm.controls.email.valid && onLoginForm.controls.email.dirty">
+                    </ion-input>
+                </ion-item>
+                <p ion-text class="text08" *ngIf="onLoginForm.controls.email.hasError('required')
+          && (onLoginForm.controls.email.dirty)">
+                    <ion-text color="warning">
+                        Required
+                    </ion-text>
+                </p>
+                <p ion-text class="text08" *ngIf="!onLoginForm.controls.email.hasError('required')
+             && onLoginForm.controls.email.hasError('pattern') 
+      && (onLoginForm.controls.email.dirty)">
+                    <ion-text color="warning">
+                        Please enter a valid email id
+                    </ion-text>
+                </p>
+
+
+                <ion-item lines="none">
+                    <ion-label mode="md" position="floating">{{"password" | translate}}</ion-label>
+                    <ion-input mode="md" type="password" formControlName="password" name="password"
+                    [class.invalid]="!onLoginForm.controls.password.valid && onLoginForm.controls.password.dirty"></ion-input>
+                    <h5 slot="end" (click)="forgotpassword()">{{"forgot" | translate}}</h5>
+                </ion-item>
+                <p ion-text class="text08" *ngIf="onLoginForm.controls.password.hasError('required')
+                && (onLoginForm.controls.password.dirty)">
+                          <ion-text color="warning">
+                              Required
+                          </ion-text>
+                      </p>
+                      <p ion-text class="text08" *ngIf="!onLoginForm.controls.password.hasError('required')
+                   && onLoginForm.controls.password.hasError('maxlength') 
+            && (onLoginForm.controls.password.dirty)">
+                          <ion-text color="warning">
+                              Password cannot exceed more than 20 characters
+                          </ion-text>
+                      </p>
+
+            </ion-list>
+            <ion-button size="large" shape="block" class="btn" [disabled]="!onLoginForm.valid" (click)="login()" type="submit">
+                {{'sign_in' | translate}}</ion-button>
+
+        </div>
+    </form>
+
+
+    <!--<div class="social_login">
+        <p class="ion-text-center">{{'not_registered_yet' | translate}}</p>
+        <ion-button size="large" shape="block" class="btn new_user" (click)="signup()">{{'registered_now' | translate}}</ion-button>
+    </div>-->
+</ion-content>

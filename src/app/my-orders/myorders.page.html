@@ -1,0 +1,54 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+			<ion-buttons slot="start">
+					<span>
+					<ion-icon class="zmdi zmdi-tag-backspace ion-text-center" (click)="gotohome()">
+						</ion-icon> </span>
+			</ion-buttons>
+		<ion-title *ngIf ="page =='home'">
+			{{"neworders" | translate}}
+		</ion-title>
+		<ion-title *ngIf ="page =='history'">
+				{{"completed_orders" | translate}}
+			</ion-title>
+	</ion-toolbar>
+
+</ion-header>
+
+<ion-content fullscreen>
+	<ion-list lines="none">
+		<h2>{{"recent" | translate}}</h2>
+		<ion-item class="add" *ngFor =" let items of orderlist">
+			<div class="item_inner" (click) ="gotoorderdetails(items)">
+				<ion-row>
+					<ion-col size="5">
+						<h3>#{{items.trackingCode}}</h3>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<h4>${{items.totalPrice + items.deliveryPrice}}</h4>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<h5>{{items.status}}</h5>
+					</ion-col>
+				</ion-row>
+
+				<ion-row>
+					<ion-col size="5">
+						<p>2 items | {{items.updatedAt | date: 'dd/MM/yyyy'}}</p>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<p>{{items.paymentMethod}}</p>
+					</ion-col>
+
+					<ion-col class="ion-text-end">
+						<p>{{'deliveryStatus' | translate}}</p>
+					</ion-col>
+				</ion-row>
+			</div>
+		</ion-item>
+
+	</ion-list>
+</ion-content>

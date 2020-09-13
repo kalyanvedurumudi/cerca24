@@ -1,0 +1,177 @@
+<ion-header>
+	<ion-toolbar>
+		
+			<ion-buttons slot="start">
+					<span>
+					<ion-icon class="zmdi zmdi-tag-backspace ion-text-center" (click)="gobacktolist()">
+						</ion-icon> </span>
+			</ion-buttons>
+		
+		<ion-title>
+			<div class="title_inner d-flex">
+				<span class="center_title">{{"my_profile" | translate}}</span>
+				<span class="end" (click)="signin()">{{"logout" | translate}}</span>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+	<ion-list lines="none">
+		<ion-card class="d-flex">
+			<h3>
+				<ion-icon class="zmdi zmdi-assignment-account ion-text-start"></ion-icon>
+			</h3>
+			<form [formGroup]="profileForm">
+			<div class="form">
+				<h2 class="d-flex">{{"personal_details" | translate}}
+				</h2>
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"firstname" | translate}}</ion-label>
+					<ion-input mode="md" maxlength="20" type="text" formControlName="firstName"
+					placeholder ="First Name" 
+					[class.invalid]="!profileForm.controls.firstName.valid && profileForm.controls.firstName.dirty"></ion-input>
+				</ion-item>
+				<p ion-text class="text08" *ngIf="profileForm.controls.firstName.hasError('required')
+				&& (profileForm.controls.firstName.dirty)">
+						  <ion-text color="warning">
+							  Required
+						  </ion-text>
+					  </p>
+				<ion-item lines="none">
+						<ion-label mode="md" position="floating">{{"lastname" | translate}}</ion-label>
+						<ion-input mode="md"  maxlength="20" type="text"
+						formControlName="lastName" placeholder="Last Name" 
+						[class.invalid]="!profileForm.controls.lastName.valid && profileForm.controls.lastName.dirty"></ion-input>
+					</ion-item>
+					<p ion-text class="text08" *ngIf="profileForm.controls.firstName.hasError('required')
+				&& (profileForm.controls.firstName.dirty)">
+						  <ion-text color="warning">
+							  Required
+						  </ion-text>
+					  </p>
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"email" | translate}}</ion-label>
+					<ion-input mode="md" type="email" maxlength="30" formControlName ="email"
+					placeholder="Email" 
+					[class.invalid]="!profileForm.controls.email.valid && profileForm.controls.email.dirty"></ion-input>
+				</ion-item>
+				<p ion-text class="text08" *ngIf="profileForm.controls.email.hasError('required')
+				&& (profileForm.controls.email.dirty)">
+						  <ion-text color="warning">
+							  Required
+						  </ion-text>
+					  </p>
+					  <p ion-text class="text08" *ngIf="!profileForm.controls.email.hasError('required')
+				   && profileForm.controls.email.hasError('pattern') 
+			&& (profileForm.controls.email.dirty)">
+						  <ion-text color="warning">
+							  Please enter a valid email id
+						  </ion-text>
+					  </p>
+
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"phone" | translate}}</ion-label>
+					<ion-input mode="md" type="text" maxlength="20" value="+1 xxxxxxxx" readonly="true"
+					formControlName ="phoneNumber" placeholder="Phone Number"
+					[class.invalid]="!profileForm.controls.phoneNumber.valid && profileForm.controls.phoneNumber.dirty"></ion-input>
+				</ion-item>
+				<p ion-text class="text08" *ngIf="profileForm.controls.phoneNumber.hasError('required')
+				&& (profileForm.controls.phoneNumber.dirty)">
+						  <ion-text color="warning">
+							  Required
+						  </ion-text>
+					  </p>
+					  <p ion-text class="text08" *ngIf="!profileForm.controls.phoneNumber.hasError('required')
+					  && profileForm.controls.phoneNumber.hasError('minlength') 
+			   && (profileForm.controls.phoneNumber.dirty)">
+							 <ion-text color="warning">
+								 Min  6 digits is required
+							 </ion-text>
+						 </p>
+						 <p ion-text class="text08" *ngIf="!profileForm.controls.phoneNumber.hasError('required')
+						 && profileForm.controls.phoneNumber.hasError('maxlength') 
+				  && (profileForm.controls.phoneNumber.dirty)">
+								<ion-text color="warning">
+									Max 12 digits is required
+								</ion-text>
+							</p>		  
+
+				<ion-item lines="none">
+						<ion-label mode="md" position="floating">{{"address" | translate}}</ion-label>
+						<ion-input mode="md" maxlength="100" type="text" formControlName ="address" placeholder="Address"
+						[class.invalid]="!profileForm.controls.address.valid && profileForm.controls.address.dirty" ></ion-input>
+					</ion-item>
+					<p ion-text class="text08" *ngIf="profileForm.controls.address.hasError('required')
+					&& (profileForm.controls.address.dirty)">
+							  <ion-text color="warning">
+								  Required
+							  </ion-text>
+						  </p>
+					
+					<ion-item lines="none">
+							<ion-label mode="md" position="floating">{{"enter_password" | translate}}</ion-label>
+							<ion-input mode="md" type="text" value="" formControlName ="password"
+							[class.invalid]="!profileForm.controls.password.valid && profileForm.controls.password.dirty"></ion-input>
+						</ion-item>
+						<p ion-text class="text08">
+								  <ion-text color="warning">
+										{{"password_text" | translate}}
+								  </ion-text>
+							  </p>
+							  <p ion-text class="text08" *ngIf="!profileForm.controls.password.hasError('required')
+							  && profileForm.controls.password.hasError('minlength') 
+					   && (profileForm.controls.password.dirty)">
+									 <ion-text color="warning">
+										 Min  6 digits is required
+									 </ion-text>
+								 </p>
+								 <p ion-text class="text08" *ngIf="!profileForm.controls.password.hasError('required')
+								 && profileForm.controls.password.hasError('maxlength') 
+						  && (profileForm.controls.password.dirty)">
+										<ion-text color="warning">
+											Max 12 digits is required
+										</ion-text>
+									</p> 			  
+			</div>
+
+			<ion-row>
+			
+					<ion-col size="12">
+						<ion-button size="large" (click) ="updateProfile()" shape="block" class="btn">{{'update_info' | translate}}</ion-button>
+					</ion-col>
+				</ion-row>
+			</form>
+		</ion-card>
+
+		<!--<ion-card class="d-flex document">
+			<h3>
+				<ion-icon class="zmdi zmdi-assignment ion-text-start"></ion-icon>
+			</h3>
+
+			<div class="form">
+				<h2 class="d-flex">{{"document" | translate}}
+				</h2>
+
+				<ion-item>
+					<div class="item_inner">
+						<h3 class="d-flex">Goverment ID <span class="end">{{"upload_now" | translate}}</span></h3>
+						<p>VoterIDcard.jpg</p>
+					</div>
+				</ion-item>
+
+				<ion-item>
+					<div class="item_inner">
+						<h3 class="d-flex">Driving license <span class="end">{{"upload_now" | translate}}</span></h3>
+						<p>drivinglicense.jpg</p>
+					</div>
+				</ion-item>
+			</div>
+		</ion-card>-->
+	</ion-list>
+	
+</ion-content>
+
+<ion-footer>
+		
+	</ion-footer>

@@ -1,0 +1,46 @@
+ion-header {
+	background: var(--bg-color);
+
+	.banner {
+		padding: 0 18px;
+		overflow: hidden;
+
+		h1 {
+			color: var(--white);
+			margin: 0;
+			font-size: 1.45rem;
+			font-weight: 500;
+		}
+
+		h3 {
+			margin: 0;
+			color: var(--text-light);
+			font-size: 0.98rem;
+			margin-bottom: 8px;
+			margin-top: 11px;
+		}
+	}
+}
+
+h2 {
+	margin: 0;
+	color: var(--text-light);
+	font-size: 0.98rem;
+	font-weight: 500;
+	padding-top: 10px;
+	padding-bottom: 15px;
+}
+
+.text_container {
+	padding: 0 20px;
+	padding-top: 20px;
+
+	p {
+		margin: 0;
+		font-size: 0.9rem; 
+		color: var(--white);
+		padding-bottom: 12px;
+		line-height: 19px;
+		letter-spacing: .3px;
+	}
+}

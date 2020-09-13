@@ -1,0 +1,158 @@
+<ion-header [ngClass]="fabAction ? 'active' : ''">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+				<span>
+				<ion-icon class="zmdi zmdi-tag-backspace ion-text-center" (click)="gobacktolist()">
+					</ion-icon> </span>
+		</ion-buttons>
+		<ion-title>
+			<div class="title_inner d-flex">
+				{{"new_delivery_task" | translate}}
+				<div class="end" (click)="toggleFab()">
+					<span class="order_info">{{"order_info" | translate}}</span>
+					<span class="view_map">{{"view_map" | translate}}</span>
+				</div>
+			</div>
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+	<div class="order" [ngClass]="fabAction ? 'active' : ''"> 
+		<ion-row class="order_heder">
+			<ion-col size="6">
+				<h2>{{'ordered_items' | translate}}</h2>
+			</ion-col>
+			<ion-col size="3" class="ion-text-center">
+				<h2>{{'qnt' | translate}}</h2>
+			</ion-col>
+			<ion-col size="3" class="ion-text-end">
+				<h2> {{'amount' | translate}}</h2>
+			</ion-col>
+		</ion-row>
+
+		<ion-row *ngFor ="let items of items.details " class="order_items">
+			<ion-col size="6">
+				<h3>{{items.productDetails.name}}</h3>
+			</ion-col>
+			<ion-col size="3" class="ion-text-center">
+				<h3><strong>{{items.quantity }}</strong></h3>
+			</ion-col>
+			<ion-col size="3" class="ion-text-end">
+				<h3><strong>$ {{items.productDetails.salePrice | number : '1.2-2'}}</strong></h3>
+			</ion-col>
+		</ion-row>
+
+
+		<ion-row class="order_price">
+			<ion-col size="8" *ngIf="items.paymentMethod =='cod'">
+				<h4>{{'cod' | translate}} </h4>
+			</ion-col>
+			<ion-col size="4" class="ion-text-end">
+				<h5>$ {{items.totalPrice |number : '1.2-2'}}</h5>
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="order_price">
+			<ion-col size="8" *ngIf="items.paymentMethod =='cod'">
+				<h4>{{'delivery_price' | translate}} </h4>
+			</ion-col>
+			<ion-col size="4" class="ion-text-end">
+				<h5>$ {{items.deliveryPrice |number : '1.2-2'}}</h5>
+			</ion-col>
+		</ion-row>
+
+		<ion-row class="order_price">
+			<ion-col size="8" *ngIf="items.paymentMethod =='cod'">
+				<h4>{{'Total_Price' | translate}} </h4>
+			</ion-col>
+			<ion-col size="4" class="ion-text-end">
+				<h5>$ {{items.totalPrice +items.deliveryPrice |number : '1.2-2'}}</h5>
+			</ion-col>
+		</ion-row>
+	</div>
+
+
+	<!--<div class="map">
+		<img src="assets/imgs/map.png">
+	</div>
+	<div class="picup_location" style="left: 40%; top: 20%;">
+		<ion-icon class="zmdi zmdi-pin"></ion-icon>
+	</div>
+
+	<div class="my_locatinon" style="left: 27%; top: 38%;  transform: rotate(52deg);">
+		<img src="assets/imgs/delivery_car.png">
+	</div>
+
+	<div class="drop_location" style="top: 50%; left: 46%;">
+		<ion-icon class="zmdi zmdi-pin"></ion-icon>
+	</div>-->
+	<div #map id="map" class="map" style="background-color: black;"></div>
+</ion-content>
+
+
+<ion-footer class="ion-no-border">
+	<div class="order_details">
+		<div class="order_header">
+			<ion-row>
+				<ion-col size="6" *ngIf = "orderstatus !='accept' && orderstatus !='processing'">
+					<h2 class="d-flex">
+						<ion-icon class="zmdi zmdi-bike ion-text-start"></ion-icon>
+						{{duration}}  <span>({{distance}} )</span>
+					</h2>
+				</ion-col>
+				<ion-col  *ngIf ="orderstatus =='accept'" size="6" class="btn" (click)="updateorderstatus(postponed)">
+					<!--<h3 class="ion-text-center">{{"accept_delivery" | translate}}</h3>-->
+					<!--<h3 class="ion-text-center"> {{"mark_as" | translate}} Postponed</h3>-->
+					<h2 class="d-flex">
+						{{"mark_as" | translate}} Postponed
+					</h2>
+				</ion-col>
+				<ion-col size="6" class="btn" (click)="updateorderstatus('Y')">
+					<!--<h3 class="ion-text-center">{{"accept_delivery" | translate}}</h3>-->
+					<h3 class="ion-text-center"> {{"mark_as" | translate}} {{orderstatus}}</h3>
+				</ion-col>
+			</ion-row>
+		</div>
+		<div class="order_details_content">
+				<p ion-text class="text08">
+						<ion-text color="warning">
+							  {{"navigation_text" | translate}}
+						</ion-text>
+					</p>
+			<div class="address from d-flex">
+				<ion-icon class="zmdi zmdi-circle ion-text-start"></ion-icon>
+				<h2 *ngIf ="items.pickUpAddress">
+						<small style="color: white;">
+								{{items.pickUpAddress.street}}
+						</small>
+					</h2>
+
+
+				<div class="icon_box end">
+					
+						<span>
+								<ion-icon class="zmdi zmdi-phone ion-text-center" (click)="makeCall(items.phoneNumber)">
+								</ion-icon>
+								
+							</span>
+
+					<span>
+						<ion-icon class="zmdi zmdi-compass ion-text-center" (click)="navigation()">
+						</ion-icon>
+						
+					</span>
+				</div>
+
+			</div>
+			<div class="address to d-flex">
+				<ion-icon class="zmdi zmdi-circle ion-text-start"></ion-icon>
+				<small style="color:white">
+					{{items.streetAddress}}
+				</small>
+				
+			</div>
+		</div>
+	</div>
+</ion-footer>

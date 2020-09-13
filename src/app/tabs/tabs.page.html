@@ -1,0 +1,25 @@
+<ion-tabs>
+
+	<ion-tab-bar slot="bottom">
+		<ion-tab-button tab="home">
+			<ion-icon class="zmdi zmdi-home"></ion-icon>
+			<ion-label>{{'home' | translate}}</ion-label>
+		</ion-tab-button>
+
+	<!--<ion-tab-button tab="wallet">
+			<ion-icon class="zmdi zmdi-money"></ion-icon>
+			<ion-label>{{'earnings' | translate}}</ion-label>
+		</ion-tab-button>-->
+
+		<ion-tab-button (click) ="commingsoon()">
+				<ion-icon class="zmdi zmdi-money"></ion-icon>
+				<ion-label>{{'earnings' | translate}}</ion-label>
+			</ion-tab-button>
+
+		<ion-tab-button tab="account">
+			<ion-icon class="zmdi zmdi-account"></ion-icon>
+			<ion-label>{{'account' | translate}}</ion-label>
+		</ion-tab-button>
+	</ion-tab-bar>
+
+</ion-tabs>

@@ -1,0 +1,64 @@
+{
+ "keys": {
+   "accessKey": "BFD16923030EAB381CBFAB2F0D5CD283C2112ECE",
+   "secretKey": "893A97C1620AACDA3F722F3984186C3E6831EE63"
+ },
+ "applicationId": "5dfbab6bcd255400176ef02d",
+ "filesSrc": [
+   "./www/*.js"
+ ],
+ "filesDest": "./",
+ "params": [
+  {
+    "name": "whitespaceRemoval"
+  },
+  {
+    "name": "dotToBracketNotation"
+  },
+  {
+    "name": "stringConcealing"
+  },
+  {
+    "name": "functionReordering"
+  },
+  {
+    "options": {
+      "features": [
+        "opaqueFunctions"
+      ]
+    },
+    "name": "functionOutlining"
+  },
+  {
+    "name": "propertyKeysObfuscation"
+  },
+  {
+    "name": "regexObfuscation"
+  },
+  {
+    "options": {
+      "features": [
+        "opaqueSteps"
+      ]
+    },
+    "name": "controlFlowFlattening"
+  },
+  {
+    "name": "booleanToAnything"
+  },
+  {
+    "name": "identifiersRenaming"
+  },
+  {
+     "options": {
+       "options": [
+         "tolerateBenignPoisoning"
+       ],
+       "threshold": 0
+     },
+     "name": "selfDefending"
+   }
+ ],
+ "areSubscribersOrdered": false,
+ "bail": true
+ }

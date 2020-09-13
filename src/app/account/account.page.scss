@@ -1,0 +1,141 @@
+ion-header ion-toolbar ion-title {
+	padding: 0 20px !important;
+}
+
+ion-header ion-toolbar {
+	color: var(--primary);
+	ion-title {
+		padding: 0 15px !important;
+	}
+
+	ion-buttons ion-back-button {
+		--padding-end: 0;
+//			--padding-start: 0;
+		min-width: unset;
+	}
+}
+
+.profile {
+	background: var(--bg-color-secondary);
+	padding: 23px 20px 23px 20px;
+	margin-top: 10px;
+
+	h2 {
+		color: var(--white);
+		margin: 0;
+		font-size: 1.45rem;
+		font-weight: 500;
+	}
+
+	p {
+		color: var(--text-light);
+		font-size: .94rem;
+		margin: 0;
+		font-weight: 500;
+
+		ion-icon {
+			color: var(--primary);
+			font-size: 1.5rem;
+		}
+
+	}
+
+}
+
+ion-list {
+	background: var(--transparent) !important;
+	margin: 0;
+	padding: 0;
+	padding-top: 25px;
+
+	ion-item {
+		padding: 0 20px;
+		min-height: unset !important;
+		--inner-padding-end: 0px;
+		--inner-min-height: unset !important;
+		--padding-start: 0;
+		--highligh-color-focused: var(--transparent) !important;
+		margin-bottom: 23px;
+		--background: var(--transparent);
+
+		.item_inner {
+			overflow: hidden;
+			align-items: flex-start !important;
+
+			ion-icon {
+				color: var(--primary);
+				font-size: 1.5rem;
+				min-width: 40px;
+			}
+
+			.text_box {
+				width: 100%;
+
+				h2 {
+					margin: 0;
+					color: var(--white);
+					font-size: 1.15rem;
+					padding-bottom: 4px;
+
+					ion-badge {
+						background: var(--secondary);
+						--background: var(--transparent);
+						--color: var(--white);
+						--padding-bottom: 0;
+						--padding-end: 0;
+						--padding-start: 0;
+						--padding-top: 0;
+						border-radius: 50px;
+						font-weight: 400;
+						font-size: 0.75rem;
+						min-width: 38px;
+						height: 20px;
+						line-height: 20px;
+
+					}
+				}
+
+				p {
+					margin: 0;
+					color: var(--text-light);
+					font-size: .8rem;
+
+					span {
+						font-weight: 500;
+					}
+				}
+			}
+		}
+	}
+}
+
+.buy_this_app {
+	background: #32C618;
+	position: relative;
+	bottom: 0px;
+	right: 0px;
+	border-radius: 50px;
+	height: 46px;
+	display: flex;
+	align-items: center;
+	min-width: 156px;  
+	width: fit-content;
+	margin-left: 56px;
+	margin-top: 16px;
+
+	h2 {
+		color: var(--white);
+		display: flex;
+		align-items: center;
+		margin: auto;
+		width: fit-content;
+		font-size: 1rem;
+		font-weight: 400;
+		padding: 0;
+
+		ion-icon {
+			font-size: 1.1rem;
+			min-width: 25px;
+		}
+	}
+}

@@ -1,0 +1,50 @@
+<ion-header class="bg_transparent">
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+		</ion-buttons>
+		<ion-title>
+			{{"send_to_bank" | translate}}
+		</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen class="bg_color">
+	<div class="banner ion-text-center">
+		<p>{{'available_balance' | translate}}</p>
+		<h2>$ 69.50</h2>
+	</div>
+
+	<ion-list lines="none">
+		<ion-card> 
+			<div class="form">
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"account_holder_name" | translate}}</ion-label>
+					<ion-input mode="md" type="name" value="David Anderson"></ion-input>
+				</ion-item>
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"bank_name" | translate}}</ion-label>
+					<ion-input mode="md" type="name" value="HSXY Bank of USA"></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"branch_code" | translate}}</ion-label>
+					<ion-input mode="md" type="text" value="HSXY01020300"></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"account_number" | translate}}</ion-label>
+					<ion-input mode="md" type="text" value="4621 4567 7890 1234"></ion-input>
+				</ion-item>
+
+				<ion-item lines="none">
+					<ion-label mode="md" position="floating">{{"enter_amount_to_transfer" | translate}}</ion-label>
+					<ion-input mode="md" type="text" value="$50.00"></ion-input>
+				</ion-item>
+			</div>
+		</ion-card>
+	</ion-list>
+</ion-content>
+<ion-footer class="ion-no-border">
+	<ion-button size="large" shape="block" class="btn">{{'proceed' | translate}}</ion-button>
+</ion-footer>

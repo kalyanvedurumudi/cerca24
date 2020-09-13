@@ -26,18 +26,18 @@
 @import "~@ionic/angular/css/flex-utils.css";
 
 :root {
-	--white: #fff;
-	--success: #6AC932;
+	--white: #000;
+	--success: #f8a30e;
 	--primary: #f8a30e;
 	--secondary: #6ac932;
-	--bg-color: #121318;
-	--bg-color-secondary: #000;
-	--bg-color2: #282a35;
-	--transparent: rgba(0, 0, 0, 0);
+	--bg-color: #ffffff;
+	--bg-color-secondary: #fff;
+	--bg-color2: #ffffff;
+	--transparent: rgba(255, 255, 255, 0);
 	--text-light: #6a6c74;
 	--text-light2: #a5a5a5;
 	--orange-color: #f95424;
-	--theme-gradient: linear-gradient(to bottom, rgba(18, 19, 24, 0) 0%, rgba(18, 19, 24, 1) 93%, rgba(18, 19, 24, 1) 100%);
+	--theme-gradient: linear-gradient(to bottom, rgba(169, 179, 224, 0) 0%, rgba(169, 179, 224, 1) 93%, rgba(169, 179, 224, 1) 100%);
 
 }
 
